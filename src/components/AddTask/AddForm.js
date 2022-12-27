@@ -1,9 +1,19 @@
 import React from 'react';
 
 const AddForm = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const todo = event.target.todo.value;
+        const image = event.target.fileInput.files[0]
+        console.log(image)
+        const formData = new FormData()
+        formData.append('image', image)
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGEBB_KEY}`
+    }
     return (
         <div>
-            <form className='max-w-lg mx-auto px-2'>
+            <form onSubmit={handleSubmit} className='max-w-lg mx-auto px-2'>
 
                 <div className="mb-6">
                     <label htmlFor="todo" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add ToDo</label>
@@ -12,7 +22,7 @@ const AddForm = () => {
                 <div className="mb-6">
 
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="file_input">Upload file</label>
-                    <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" />
+                    <input name='fileInput' className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept='image/*' required />
 
                 </div>
 

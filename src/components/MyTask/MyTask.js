@@ -3,7 +3,7 @@ import TaskTable from './TaskTable';
 
 const MyTask = () => {
     return (
-        <div>
+        <div className=''>
             <h2 className='text-2xl font-bold text-center uppercase'>My Task</h2>
             <TaskTable />
         </div>

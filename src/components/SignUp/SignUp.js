@@ -1,12 +1,15 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
     const { createUser, providerLogin, updateUserProfile } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -28,9 +31,18 @@ const SignUp = () => {
                     console.log(user)
                     toast.success('New user created.')
                     form.reset()
-
+                    handleUpdateUserProfile(name);
+                    navigate(from, { replace: true })
                 })
+                .catch(e => toast.error(e.message))
         }
+    }
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = { displayName: name }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(e => console.log(e))
     }
 
     const handleGoogleProvider = () => {
@@ -39,6 +51,7 @@ const SignUp = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(err => toast.error(err.message))
     }

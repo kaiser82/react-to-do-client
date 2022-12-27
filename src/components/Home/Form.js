@@ -1,23 +1,74 @@
+import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import React from 'react';
 
 const Form = () => {
     return (
 
-        <form className='max-w-lg mx-auto px-2'>
-
-            <div className="mb-6">
-                <label htmlFor="todo" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add ToDo</label>
-                <input type="text" name='todo' id="todo" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="todo text..." required />
+        <Navbar
+            fluid={true}
+            rounded={true}
+        >
+            <Navbar.Brand href="https://flowbite.com/">
+                <img
+                    src="https://flowbite.com/docs/images/logo.svg"
+                    className="mr-3 h-6 sm:h-9"
+                    alt="Flowbite Logo"
+                />
+                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                    Flowbite
+                </span>
+            </Navbar.Brand>
+            <div className="flex md:order-2">
+                <Dropdown
+                    arrowIcon={false}
+                    inline={true}
+                    label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                >
+                    <Dropdown.Header>
+                        <span className="block text-sm">
+                            Bonnie Green
+                        </span>
+                        <span className="block truncate text-sm font-medium">
+                            name@flowbite.com
+                        </span>
+                    </Dropdown.Header>
+                    <Dropdown.Item>
+                        Dashboard
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                        Settings
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                        Earnings
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item>
+                        Sign out
+                    </Dropdown.Item>
+                </Dropdown>
+                <Navbar.Toggle />
             </div>
-            <div className="mb-6">
-
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="file_input">Upload file</label>
-                <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" />
-
-            </div>
-
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-        </form>
+            <Navbar.Collapse>
+                <Navbar.Link
+                    href="/navbars"
+                    active={true}
+                >
+                    Home
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    About
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    Services
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    Pricing
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    Contact
+                </Navbar.Link>
+            </Navbar.Collapse>
+        </Navbar>
 
     );
 };
