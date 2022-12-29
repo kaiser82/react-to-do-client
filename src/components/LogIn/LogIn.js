@@ -39,7 +39,8 @@ const LogIn = () => {
             .catch(err => toast.error(err.message))
     }
     return (
-        <div className='container'>
+        <div className='container py-10'>
+            <h2 className='text-3xl font-bold text-center'>Please Log In</h2>
             <form onSubmit={handleSubmit} className='max-w-xl mx-auto px-2'>
                 <div className="mb-6">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
