@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
-const AddForm = () => {
-    const { user } = useContext(AuthContext)
-
+const UpdateForm = () => {
     const navigate = useNavigate()
 
     const handleSubmit = (event) => {
@@ -27,14 +24,14 @@ const AddForm = () => {
                 const todoInfo = {
                     todo,
                     message,
-                    email: user?.email,
+
                     img: imageData.data.display_url,
-                    status: 'Not Completed'
+
                 }
                 console.log(todoInfo)
 
                 fetch('http://localhost:5000/todos', {
-                    method: 'POST',
+                    method: 'PATCH',
                     headers: {
                         'content-type': 'application/json',
                     },
@@ -44,7 +41,7 @@ const AddForm = () => {
                     .then(data => {
                         console.log(data)
                         if (data.acknowledged) {
-                            toast.success('ToDo added .');
+                            toast.success('ToDo updated .');
                             navigate('/my-task')
                         }
                     })
@@ -80,4 +77,4 @@ const AddForm = () => {
     );
 };
 
-export default AddForm;
+export default UpdateForm;

@@ -4,6 +4,7 @@ import CompletedTask from "../components/CompletedTask/CompletedTask";
 import Home from "../components/Home/Home";
 import LogIn from "../components/LogIn/LogIn";
 import MyTask from "../components/MyTask/MyTask";
+import UpdateForm from "../components/MyTask/UpdateForm";
 import SignUp from "../components/SignUp/SignUp";
 import Main from "../Layout/Main";
 
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: '/my-task',
                 element: <MyTask />
+            },
+            {
+                path: '/my-task/update/:id',
+                element: <UpdateForm />
             },
             {
                 path: '/completed-task',

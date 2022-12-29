@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const TaskTable = () => {
+    const { user, loading, setLoading } = useContext(AuthContext)
+    const [todos, setTodos] = useState([]);
+    console.log(todos)
+    useEffect(() => {
+        fetch(`http://localhost:5000/todos?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setTodos(data)
+                setLoading(false)
+            })
+
+    }, [user])
     return (
 
         <div className="overflow-x-auto relative ">
