@@ -14,13 +14,13 @@ const CompletedTask = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/todos?email=${user?.email}`)
+        fetch(`https://to-do-app-server.vercel.app/todos?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setTodos(data))
     }, [user?.email,])
 
     const handleNotCompleted = (id) => {
-        fetch(`http://localhost:5000/todos/${id}`, {
+        fetch(`https://to-do-app-server.vercel.app/todos/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const CompletedTask = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure! Your want to delete this task?');
         if (proceed) {
-            fetch(`http://localhost:5000/todos/${id}`, {
+            fetch(`https://to-do-app-server.vercel.app/todos/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

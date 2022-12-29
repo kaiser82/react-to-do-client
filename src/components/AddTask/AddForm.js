@@ -33,7 +33,7 @@ const AddForm = () => {
                 }
                 console.log(todoInfo)
 
-                fetch('http://localhost:5000/todos', {
+                fetch('https://to-do-app-server.vercel.app/todos', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

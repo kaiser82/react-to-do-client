@@ -11,7 +11,7 @@ const UpdateForm = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/todos/${id}`)
+        fetch(`https://to-do-app-server.vercel.app/todos/${id}`)
             .then(res => res.json())
             .then(data => setTask(data))
     }, [id])
@@ -27,7 +27,7 @@ const UpdateForm = () => {
         }
         console.log(todoInfo)
 
-        fetch(`http://localhost:5000/todos/${id}`, {
+        fetch(`https://to-do-app-server.vercel.app/todos/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
