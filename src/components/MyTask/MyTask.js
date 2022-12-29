@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import SpinnerLoading from '../../SpinnerLoading/SpinnerLoading';
 import TaskCard from './TaskCard';
 
 
@@ -61,10 +62,12 @@ const MyTask = () => {
         }
     }
 
+    loading && <SpinnerLoading />
+
     return (
         <div >
             <h2 className='text-2xl font-bold text-center uppercase'>My Task</h2>
-            <div className=" grid  rounded-lg shadow-md dark:border-gray-700 md:mb-12 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+            <div className=" grid grid-cols-1  rounded-lg shadow-md dark:border-gray-700 md:mb-12 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
 
                 {
                     todos.map(todo =>

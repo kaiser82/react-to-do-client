@@ -1,6 +1,7 @@
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const NavBar = () => {
@@ -45,7 +46,17 @@ const NavBar = () => {
                     </Dropdown.Header>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        Sign out
+                        {
+                            user?.email ?
+                                <Link onClick={handleSignOut}>
+                                    Log Out
+                                </Link>
+                                :
+                                <Link to="/login">
+                                    Log In
+                                </Link>
+                        }
+
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />

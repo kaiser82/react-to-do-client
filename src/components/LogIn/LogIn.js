@@ -61,7 +61,7 @@ const LogIn = () => {
                 </div>
                 <div className='py-3'>
                     <p className="text-xs text-center sm:px-6 text-gray-400">Don't have an account?
-                        <Link to="/signup" className="underline text-gray-100 ml-2">Sign Up</Link>
+                        <Link to="/signup" className="underline hover:text-blue-400 text-gray-400 ml-2">Sign Up</Link>
                     </p>
                 </div>
             </form>

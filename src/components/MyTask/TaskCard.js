@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 const TaskCard = ({ todoData, handleCompleted, handleDelete }) => {
     console.log(todoData)
     const { todo, img, message, _id, status } = todoData
-    return (
+    console.log(status)
 
+
+
+    return (
 
         <div className="w-full md:max-w-md">
             <Card >
@@ -33,12 +36,15 @@ const TaskCard = ({ todoData, handleCompleted, handleDelete }) => {
                     >
                         Delete
                     </button>
-                    <button onClick={() => handleCompleted(_id)}
+                    {
+                        status !== 'Completed' &&
+                        <button onClick={() => handleCompleted(_id)}
 
-                        className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                        Completed
-                    </button>
+                            className=" inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            Completed
+                        </button>
+                    }
                 </div>
             </Card>
         </div>
