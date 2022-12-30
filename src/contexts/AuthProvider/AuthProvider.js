@@ -44,7 +44,33 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe()
     }, [])
 
-    const authInfo = { user, loading, setLoading, createUser, signIn, providerLogin, updateUserProfile, logOut }
+
+    // dark mode code start
+
+    const [darkTheme, setDarkTheme] = useState(false);
+
+    useEffect(() => {
+        if (window.localStorage.getItem("DarkTheme") !== null) {
+            setDarkTheme(JSON.parse(window.localStorage.getItem("DarkTheme")));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (darkTheme === true) {
+            document.querySelector("html").classList.add("dark");
+        } else {
+            document.querySelector("html").classList.remove("dark");
+        }
+
+        window.localStorage.setItem("DarkTheme", JSON.stringify(darkTheme));
+    }, [darkTheme]);
+
+    // dark mode code end
+
+
+
+
+    const authInfo = { user, loading, setLoading, createUser, signIn, providerLogin, updateUserProfile, logOut, darkTheme, setDarkTheme }
 
     return (
         <AuthContext.Provider value={authInfo}>

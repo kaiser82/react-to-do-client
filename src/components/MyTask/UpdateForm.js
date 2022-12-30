@@ -46,7 +46,8 @@ const UpdateForm = () => {
     }
 
     return (
-        <div>
+        <div className='py-10 h-screen'>
+            <h2 className='text-2xl font-bold text-center uppercase pb-5'>Update task</h2>
             <form onSubmit={handleSubmit} className='max-w-lg mx-auto px-2'>
                 <div className="mb-6">
                     <label htmlFor="todo" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ToDo Title</label>

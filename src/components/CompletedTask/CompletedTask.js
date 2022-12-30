@@ -60,7 +60,7 @@ const CompletedTask = () => {
     }
 
     return (
-        <div className='py-10'>
+        <div className='py-10 h-screen'>
             <h2 className='text-2xl font-bold text-center uppercase pb-5'>Completed task</h2>
             <div className='grid grid-cols-1  rounded-lg shadow-md dark:border-gray-700 md:mb-12 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto'>
                 {
