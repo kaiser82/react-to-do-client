@@ -17,7 +17,7 @@ const NavBar = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand href="/">
                 <img
                     src={logo}
                     className="mr-3 h-6 sm:h-9"
@@ -63,30 +63,30 @@ const NavBar = () => {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
-                <Navbar.Link
-                    href="/"
-                    active={true}
+                <Link
+                    to="/"
+                // active={true}
                 >
                     Home
-                </Navbar.Link>
-                <Navbar.Link href="/add-task">
+                </Link>
+                <Link to="/add-task">
                     Add Task
-                </Navbar.Link>
-                <Navbar.Link href="/my-task">
+                </Link>
+                <Link to="/my-task">
                     My Task
-                </Navbar.Link>
-                <Navbar.Link href="/completed-task">
+                </Link>
+                <Link to="/completed-task">
                     Completed Task
-                </Navbar.Link>
+                </Link>
                 {
                     user?.email ?
-                        <Button color='light' onClick={handleSignOut}>
+                        <Link onClick={handleSignOut}>
                             Log Out
-                        </Button>
+                        </Link>
                         :
-                        <Navbar.Link href="/login">
+                        <Link to="/login">
                             Log In
-                        </Navbar.Link>
+                        </Link>
                 }
             </Navbar.Collapse>
         </Navbar>

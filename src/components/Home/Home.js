@@ -3,7 +3,7 @@ import HomeCard from './HomeCard';
 
 const Home = () => {
     return (
-        <div>
+        <div className='py-10'>
             <h2 className='text-2xl font-bold uppercase text-center'>ToDo Home</h2>
             <HomeCard />
 
